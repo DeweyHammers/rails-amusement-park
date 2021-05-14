@@ -7,6 +7,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.integer :happieness
       t.integer :tickets
       t.integer :height
+      t.boolean :admin
 
       t.timestamps
     end
