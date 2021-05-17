@@ -1,1 +1,5 @@
-<%= link_to  %>
+ <%= form_tag('/rides')  do %>
+  <input type="hidden" value="3109" name="ride[user_id]" id="ride_user_id">
+  <input type="hidden" value="87" name="ride[attraction_id]" id="ride_attraction_id">
+  <input type="submit" name="commit" value="Go on this ride" class="btn btn-light" data-disable-with="Go on this ride">
+ <% end %>
