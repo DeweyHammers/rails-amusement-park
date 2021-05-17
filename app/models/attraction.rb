@@ -5,6 +5,6 @@ class Attraction < ApplicationRecord
   validates :name, presence: true
   validates :min_height, presence: true
   validates :nausea_rating, presence: true
-  validates :happiness, presence: true
+  validates :happiness_rating, presence: true
   validates :tickets, presence: true
 end
