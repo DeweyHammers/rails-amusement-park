@@ -25,7 +25,7 @@
               <a class="navbar-brand" href="<%= new_user_path %>"/>Sign Up</a>
               <a class="navbar-brand" href="/signin"/>Login</a>>
             <% else %>
-              <%= link_to @user.name, user_path(@user), class:'navbar-brand'  %>
+              <%= link_to current_user.name, user_path(current_user), class:'navbar-brand'  %>
               <a class="navbar-brand" rel="nofollow" data-method="POST" href="/logout">Log Out</a>
             <% end %>
           </ul>
