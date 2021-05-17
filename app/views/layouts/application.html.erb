@@ -21,7 +21,13 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <a class="navbar-brand" href="<%= new_user_path %>"/>Sign Up</a>
+            <% if session[:user_id] == nil %>
+              <a class="navbar-brand" href="<%= new_user_path %>"/>Sign Up</a>
+              <a class="navbar-brand" href="/signin"/>Login</a>>
+            <% else %>
+              <%= link_to @user.name, user_path(@user), class:'navbar-brand'  %>
+              <a class="navbar-brand" rel="nofollow" data-method="POST" href="/logout">Log Out</a>
+            <% end %>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
