@@ -1,10 +1,17 @@
 class RidesController < ApplicationController
   def create
-    attraction = Attraction.find_by(id: params[:ride][:attraction_id])
-    user = User.find_by(id: params[:ride][:user_id])
-    ride = Ride.create(attraction_id: attraction, user_id: user)
-    byebug
-    ride.take_ride
-    redirect_to users_path(ride.user)
+    ride = Ride.new(ride_params)
+
+    if ride.save
+      redirect_to user_path(ride.user), notice: ride.take_ride
+    else
+      redirect_to attraction_path(params[:ride][:attraction_id])
+    end
   end 
+
+  private
+
+  def ride_params
+    params.require(:ride).permit(:attraction_id, :user_id)
+  end
 end

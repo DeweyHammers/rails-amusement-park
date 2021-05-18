@@ -20,6 +20,7 @@ class Ride < ActiveRecord::Base
       user.nausea += attraction.nausea_rating
       user.happiness += attraction.happiness_rating
       user.save(validate: false)
+      "Thanks for riding the #{attraction.name}!"
     end
   end
 end
